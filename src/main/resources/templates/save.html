@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Clientes</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+
+	<div class="container">
+		<br>
+		<h2>Agregar Persona</h2>
+		<form action="#" th:action="@{/save}" th:object="${cliente}" method="post">
+			<div class="form-group">
+				<label for="nombre">ID</label> <input type="number"
+					class="form-control" id="id" th:field="*{id}" name="id">
+			</div>
+			<div class="form-group">
+				<label for="nombre">Llave</label> <input type="text"
+					class="form-control" id="llave" th:field="*{llave}" name="llave">
+			</div>
+			<div class="form-group">
+				<label for="nombre">Nombre</label> <input type="text"
+					class="form-control" id="nombre" th:field="*{nombre}" name="nombre">
+			</div>
+			<div class="form-group">
+				<label for="nombre">Apellido</label> <input type="text"
+					class="form-control" id="apellido" th:field="*{apellido}"
+					name="apellido">
+			</div>
+			<div class="form-group">
+				<label for="nombre">Dirección</label> <input type="text"
+					class="form-control" id="direccion" th:field="*{direccion}"
+					name="direccion">
+			</div>
+
+			<div class="form-group">
+				<label for="nombre">Ciudad</label> <input type="text"
+					class="form-control" id="ciudad" th:field="*{ciudad}" name="ciudad">
+			</div>
+			<div class="form-group">
+				<label for="nombre">Departamento</label> <input type="text"
+					class="form-control" id="departamento" th:field="*{departamento}"
+					name="departamento">
+			</div>
+			<button type="submit" class="btn btn-success">Guardar</button>
+		</form>
+	</div>
+</body>
+</html>

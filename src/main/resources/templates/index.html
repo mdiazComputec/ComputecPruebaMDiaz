@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Clientes</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+	<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+
+<div class="container">
+<div class="page-header">
+  <h1>Prueba Martin Diaz </h1>
+</div>
+	<br>
+	<div>
+		<a href="/save/0" class="btn btn-primary">Agregar</a>
+	</div>
+	<h2 th:if="${list.isEmpty()}">No hay personas</h2>
+	<div th:if="${!list.isEmpty()}">
+		<h2>Clientes</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>llave</th>
+					<th>Nombre</th>
+					<th>Dirección</th>
+					<th>Ciudad</th>
+					<th>Departamento</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente : ${list}">
+					<td th:text="${cliente.llave}"></td>
+					<td th:text="${cliente.nombre}"></td>
+					<td th:text="${cliente.direccion}"></td>
+					<td th:text="${cliente.ciudad}"></td>
+					<td th:text="${cliente.departamento}"></td>
+					<td><a class="btn btn-secondary"
+						th:href="@{/save/{id}(id=${cliente.id})}">Editar</a></td>
+					<td><a class="btn btn-danger"
+						th:href="@{/delete/{id}(id=${cliente.id})}">Eliminar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+</body>
+</html>
